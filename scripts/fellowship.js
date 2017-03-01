@@ -19,159 +19,159 @@ var buddies = [
 var lands = ['The Shire', 'Rivendell', 'Mordor'];
 var body = document.body;
 var section = '<section></section>';
+var article = '<article></article>';
+var p = '<p></p>';
+var h1 = '<h1></h1>';
+var li = '<li></li>';
+var div = '<div></div>';
+var aside = '<aside></aside>';
+var ul = '<ul></ul>';
+var Shire = lands[0];
+var Rivendell = lands[1];
+var Mordor = lands[2];
+
+var Gandalf = buddies[0];
+var Legolas = buddies[1];
+var Gimli = buddies[2];
+var Strider = buddies[3];
+var Boromir = buddies[4];
+
+var Frodo = hobbits[0];
+var Sam = hobbits[1];
+var Meriadoc = hobbits[2];
+var Peregrin = hobbits[3];
 
 function makeMiddleEarth() {
-
-  // create a section tag with an id of `middle-earth`
-$('body').append("<section id='#middle-earth'></section>")
-
-   // add each land as an `article` tag
-   // inside each `article` tag include an `h1` with the name of the land
-// $('body').append("<article>" + lands + "</article>");
-//   for(i = 0; i < lands.length[i]; i++);
-$('section').append("<article></article>");
-$('section').append("<article></article>");
-$('section').append("<article></article>");
-$('article:nth-child(1)').append("<h1>" + lands[0] + "</h1>");
-$('article:nth-child(2)').append("<h1>" + lands[1] + "</h1>");
-$('article:nth-child(3)').append("<h1>" + lands[2] + "</h1>");
-
-   // append `middle-earth` to your document `body`
+// create a section tag with an id of `middle-earth`
+$('body').append("<section id='#middle-earth'></section")
+// add each land as an `article` tag
+$('section').append("<article>" + "<h1>" + Shire + "</h1>" + "</article>")
+$('section').append("<article>" + "<h1>" + Rivendell + "</h1>" + "</article>")
+$('section').append("<article>" + "<h1>" + Mordor + "</h1>" + "</article>")
+// inside each `article` tag include an `h1` with the name of the land
+// append `middle-earth` to your document `body`
+$('#middle-earth').append('body')
 }
 
 makeMiddleEarth();
 
 function makeHobbits(){
-  // your answers here
-    // display an `unordered list` of hobbits in the shire
-      // (which is the second article tag on the page)
-   // give each hobbit a class of `hobbit`
-$('article:nth-child(1)').append("<ul><li class='hobbit'>" + "'Frodo Baggins,'</li>" + "<li class='hobbit'>'Samwise \'Sam\' Gamgee', </li>" + "<li class='hobbit'>'Meriadoc \'Merry\' Brandybuck', </li>" + "<li class='hobbit'>'Peregrin \'Pippin\' Took'</li></ul>");
-}
+// display an `unordered list` of hobbits in the shire
+$('article:nth-child(1)').append("<ul><li class='hobbit'>" + Frodo + "</li>" + "<li class='hobbit'>" + Sam + "</li>" + "<li class='hobbit'>" + Meriadoc + "</li>" + "<li class='hobbit'>" + Peregrin + "</li>"+ "</ul>")
+// (which is the second article tag on the page) -----> //how come when I put 'hobbits' or 'shire' in the selector it won't put the hobbits in the shire?
+//Do I have to use nth child for that no matter what??
 
+// give each hobbit a class of `hobbit`
+}
 
 makeHobbits();
 
 function keepItSecretKeepItSafe(){
-  // your answers here
-    // create a div with an id of `'the-ring'`
-   // give the div a class of `'magic-imbued-jewelry'`
-   // add the ring as a child of `Frodo`
-$('body').append("<div id='the-ring' class='magic-imbued-jewelery'></div>");
-$('hobbit:nth-child(1)').append(".the-ring");
+// create a div with an id of `'the-ring'`
+$('body').append("<div id='the-ring' class='magic-imbued-jewelry'></div>");
+// give the div a class of `'magic-imbued-jewelry'`
+// add the ring as a child of `Frodo`
+$('Frodo').append(".the-ring"); //I'm having trouble with this...I don't see why
+//I can't  append the ring to Frodo
 }
 
 keepItSecretKeepItSafe();
 
 function makeBuddies(){
-  // your answers here
-     // create an `aside` tag
-     var aside =  $('<aside></aside>');
-    // attach an `unordered list` of the `'buddies'` in the aside
-    var ul = $('<ul></ul>');
-    aside.append(ul);
+// create an `aside` tag
 
-
-  for(i = 0; i < buddies.length; i++){
-    ul.append("<li>" + buddies[i] + "</li>");
+// attach an `unordered list` of the `'buddies'` in the aside
+// insert your aside as a child element of `rivendell`
+for(i = 0; i < buddies.length; i++){
+  aside.append("<ul><li>" + buddies[i] + "</li></ul>");
   }
 
-     // insert your aside as a child element of `rivendell`
-     aside.appendTo('article:nth-child(2)');
+$('Rivendell').append('aside') //<--- what the hell! This doesn't work, why?
+//aside.append is not a function???? Ugggghhhh
+
 }
 
 makeBuddies();
 
 function beautifulStranger(){
-  // your answers here
-     // change the `'Strider'` text to `'Aragorn'`
-  $($('ul').children()[7]).text('Aragorn');
-
+// change the `'Strider'` text to `'Aragorn'`
+$('Strider').text('Aragorn');
 }
 
 beautifulStranger();
 
 function leaveTheShire(){
-  // your answers here
-//      // assemble the `hobbits` and move them to `rivendell`
-
-$('.hobbit').appendTo('article:nth-child(2)');
+// assemble the `hobbits` and move them to `rivendell`
+$('.hobbit').appendTo(Rivendell); //the class I gave the hobbits and then I move
+//them to Rivendell which is a variable..soooo what the
 }
 
 leaveTheShire();
 
 function forgeTheFellowship() {
-  // your answers here
-     // create a new div called `'the-fellowship'` within `rivendell`
-   // add each `hobbit` and `buddy` one at a time to `'the-fellowship'`
-   $("<div id='the-fellowship'></div>").appendTo("article:nth-child(2)");
+// create a new div called `'the-fellowship'` within `rivendell`
+$('Rivendell').append("<div id='the-fellowship'></div>");
+// add each `hobbit` and `buddy` one at a time to `'the-fellowship'`
+$('#the-fellowship').append(hobbits[i])
+  if (i = 0; i <= hobbits.length; i++);
+  // after each character is added make an alert that they // have joined your party
+  return alert(hobbit[i] + "has joined your party!");
+  //my console keeps saying that hobbits isn't defined but it IS defined!//
 
-///I'm having a lot of trouble here, not sure with adding each buddy.
-// }
-
-   // after each character is added make an alert that they // have joined your party
-alert(".hobbit[] has joined your party!");
 }
 
 forgeTheFellowship();
 
 function theBalrog(){
-  // your answers here
-     // change the `'Gandalf'` text to `'Gandalf the White'`
-   // apply the following style to the element, make the // background 'white', add a grey border
-var gandy = $('li:contains("Gandalf")');
+// change the `'Gandalf'` text to `'Gandalf the White'`
+var gandy = $('li:contains("Gandalf")'); //this is from my orignial fellowship because
+//I can't get the variables I made to work//
 gandy.text('Gandalf the White');
+// apply the following style to the element, make the // background 'white', add a grey border
 $(gandy).css({ 'background-color': 'white', 'border': 'grey' });
+  }
+
 }
 
 theBalrog();
 
 function hornOfGondor() {
-  // your answers here
-  // pop up an alert that the horn of gondor has been blown
-  alert("Horn of Gondor has been blown!\nBoromir's been killed by the Uruk-hai!");
-   // Boromir's been killed by the Uruk-hai!
-   // Remove `Boromir` from the Fellowship
-  $('li:contains("Boromir")').remove();
+// pop up an alert that the horn of gondor has been blown
+// Boromir's been killed by the Uruk-hai!
+alert("The horn of gondor has been blown! Boromir has been killed by the Uruk-hai!");
+$('#the-fellowship').remove(Boromir);
+// Remove `Boromir` from the Fellowship
 }
 
 hornOfGondor();
 
 function itsDangerousToGoAlone() {
-  // your answers here
-  // take `Frodo` and `Sam` out of the fellowship and move // them to `Mordor`
-  $('.hobbit(1)').appendTo('#Mordor');
-  $('.hobbit(2)').appendTo('#Mordor');
-   // add a div with an id of `'mount-doom'` to `Mordor`
-$('#Mordor').append('<div id="mount-doom"></div>');
-
-//I'm still having a lot of trouble with moving the hobbit class
-//and moving the ring property....
+// take `Frodo` and `Sam` out of the fellowship and move // them to `Mordor`
+$('#the-fellowship').detach(Frodo + Sam);
+$('Mordor').append(Frodo + Sam);
+// add a div with an id of `'mount-doom'` to `Mordor`
+$('Mordor').append("<div id='mount-doom'></div>");
 }
 
 itsDangerousToGoAlone();
 
 function weWantsIt() {
-  // your answers here
-  // Create a div with an id of `'gollum'` and add it to Mordor
-    $('#Mordor').append('<div id="gollum"></div>');
-   // Remove `the ring` from `Frodo` and give it to `Gollum`
-   $('#gollum').append($('#the-ring'));
-   // Move Gollum into Mount Doom
-   $('#mount-doom').append($('#gollum'));
+// Create a div with an id of `'gollum'` and add it to Mordor
+$('Mordor').append("<div id='gollum'></div>");
+// Remove `the ring` from `Frodo` and give it to `Gollum`
+$('Frodo').remove('.the-ring');
+$('Gollum').append('.the-ring');
+// Move Gollum into Mount Doom
+$('Gollum').append('#mount-doom');
 }
 
 weWantsIt();
 
 function thereAndBackAgain(){
-  // your answers here
-  // remove `Gollum` and `the Ring` from the document
-  $('#the-ring').remove();
-  $('#gollum').remove();
-   // Move all the `hobbits` back to `the shire`
-  $('article h1:contains("Shire")').parent().append($('#hobbit-list'));
-  $('#hobbit-list').append($('.hobbit'));
-
+// remove `Gollum` and `the Ring` from the document
+$('body').remove(Gollum + '.the-ring');
+// Move all the `hobbits` back to `the shire`
+$('Shire').append(hobbits)
 }
 
 thereAndBackAgain();
